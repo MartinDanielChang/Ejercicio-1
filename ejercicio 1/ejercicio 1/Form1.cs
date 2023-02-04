@@ -25,26 +25,22 @@ namespace ejercicio_1
                 errorProvider1.SetError(txtNumero, "Ingrese un valor");
                 return;
             }
-            if (Convert.ToDecimal(txtNumero.Text) - Convert.ToInt32(txtNumero.Text) != 0)
-            {
-                errorProvider1.SetError(txtNumero, "Ingrese un numero entero");
-                return;
-            }
+           
             errorProvider1.Clear();
             //Par o Impar
-            string respuestaParImpar = ParImpar(Convert.ToInt32(txtNumero.Text));
+            string respuestaParImpar = ParImpar(Convert.ToDecimal(txtNumero.Text));
             txtParImpar.Text = respuestaParImpar;
 
             //Positivo o negativo
-            string respuestaNegativoPositivo = PositivoNegativo(Convert.ToInt32(txtNumero.Text));
+            string respuestaNegativoPositivo = PositivoNegativo(Convert.ToDecimal(txtNumero.Text));
             txtPositivoNegativo.Text = respuestaNegativoPositivo;
         }
 
         //Funcion Par Impar
-        private string  ParImpar (int n1)
+        private string  ParImpar (decimal n1)
         {
             string resultadoParImpar = "";
-            int numeroParImpar = Convert.ToInt32(txtNumero.Text);
+            decimal numeroParImpar = Convert.ToDecimal(txtNumero.Text);
             if (numeroParImpar % 2 == 0)
                 resultadoParImpar = "El numero es Par";
             else 
@@ -54,10 +50,10 @@ namespace ejercicio_1
         }
 
         //Funcion Positivo o negativo
-        private string PositivoNegativo  (int N1)
+        private string PositivoNegativo  (decimal N1)
         {
             string resultadoPositivoNegativo = "";
-            int numeroPositivioNegativo = Convert.ToInt32(txtNumero.Text);
+            Decimal numeroPositivioNegativo = Convert.ToDecimal(txtNumero.Text);
 
             if (numeroPositivioNegativo >= 0)
                 resultadoPositivoNegativo = "El numero es Positivo";
